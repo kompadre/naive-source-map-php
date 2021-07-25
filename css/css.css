@@ -1,0 +1,32 @@
+<?php
+define('__DEBUG', true);
+require_once __DIR__ . '/map.css.php';
+if (isset($_GET['map']) && $_GET['map'] == 'true') {
+    renderSourceMap();
+    exit();
+}
+header('Content-Type: text/css');
+_map_hint();
+?>
+body {
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 90vh;
+}
+body > div#main {
+    width: 50%;
+    margin: auto;
+    border: 3px solid blueviolet;
+    background-color: #dccee8;
+}
+h1.class1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+}
+
+<?php include __DIR__ . '/partial.css'; ?>
+/*# sourceMappingURL=<?= $_SERVER['SCRIPT_NAME'] ?>?map=true */

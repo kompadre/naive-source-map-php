@@ -1,0 +1,18 @@
+<?php _map_hint(); ?>
+.class2 {
+    font-size: 16pt;
+    text-align: center;
+}
+<?php _map_hint(); ?>
+.class3 {
+    font-size: 16pt;
+    text-align: center;
+    color: blue;
+    text-decoration: underline;
+}
+<?php for($i=1;$i<10;$i++) : ?>
+<?php _map_hint(); ?>
+.class<?= '' . ($i+3) ?> {
+    font-size: <?= $i + 13 ?>pt;
+}
+<?php endfor; ?>

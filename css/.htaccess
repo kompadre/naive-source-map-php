@@ -1,0 +1,3 @@
+<FilesMatch "\.(css)$">
+AddHandler application/x-httpd-php .css
+</FilesMatch>
