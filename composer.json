@@ -1,0 +1,5 @@
+{
+    "require": {
+        "axy/sourcemap": "^0.1.5"
+    }
+}
