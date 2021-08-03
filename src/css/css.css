@@ -1,11 +1,19 @@
 <?php
-define('__DEBUG', true);
 require_once __DIR__ . '/map.css.php';
 if (isset($_GET['map']) && $_GET['map'] == 'true') {
     renderSourceMap();
     exit();
 }
 header('Content-Type: text/css');
+function _map_hint() {
+    $bt = debug_backtrace();
+    $index = 0;
+    echo '/*# '. str_replace(__DIR__, '', $bt[$index]['file']) . ':' . $bt[$index]['line'] .' */' . PHP_EOL;
+}
+comp_inject_start(
+    "echo '/*# '. __FILE__ .':0 */' . PHP_EOL;",
+    "echo '/*# '. __FILE__ .':$ */' . PHP_EOL;",
+);
 _map_hint();
 ?>
 body {
@@ -29,4 +37,6 @@ h1.class1 {
 }
 
 <?php include __DIR__ . '/partial.css'; ?>
+<?php comp_inject_stop(); ?>
 /*# sourceMappingURL=<?= $_SERVER['SCRIPT_NAME'] ?>?map=true */
+
